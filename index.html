@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Alminhas no Concelho de Ponte da Barca</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Alminhas - Mapa interactivo">
+        <meta name="keywords" content="Alminhas, WebSig, Mapa Interactivo, Ponte da Barca">
+        <meta name="author" content="Ezequiel Correia, Projecto Alminhas">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+        <!--CSS-->
+        <link rel="stylesheet" href="css/leaflet.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/L.Control.Sidebar.css"/>
+        <link rel="stylesheet" href="css/L.Control.Locate.css"/>
+        <link rel="stylesheet" href="css/MarkerCluster.css"/>
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css"/>
+        <link rel="stylesheet" href="css/jquery-ui.css"/>
+        <!--JS-->
+        <script src="js/leaflet.js"></script>
+        <script src="js/L.Control.Sidebar.js"></script>
+        <script src="js/L.Control.Locate.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script type="text/javascript" src="data/pbarca.geojson"></script>
+    </head>
+    <style>
+        body{
+            background-color: #1E6C93;
+            font-family: Roboto, sans-serif;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        #mapCanvas{
+            width: 99vw;
+            height: 85vh;
+            z-index: 1;
+        }
+        #titulo{
+            color: #f5f5dc;
+        }
+        #freguesias{
+            color: #f5f5dc;
+        }
+        #selbox{
+            color:black;
+            font-family: Roboto, sans-serif;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 10px
+        }
+        #contador{
+            color: #f5f5dc;
+        }
+        #linha{
+            border: 1px solid #f5f5dc;
+        }
+        .brmedium {
+            display: block;
+            margin-bottom: 0.6em;
+        }
+        #lugares {
+            z-index: 100;
+            margin-bottom: 5px;
+            color:black;
+            font-family: Roboto, sans-serif;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 10px
+        }
+    </style>
+    <body>
+        <h1 id="titulo">ALMINHAS - POnte da Barca</h1>
+        <div id="freguesias" style="display: inline-block;">Freguesias
+            <select id="selbox" onchange="selFreg()">
+                <option value="Todas">Todas</option>
+            </select>
+        </div>
+        <div class="ui-widget"  style="text-align:left; display: inline-block; color: #f5f5dc">Locais
+            <input id="lugares" placeholder="Pesquisa por texto">
+        </div>
+        <span class="brmedium"></span>
+        <div id="contador"></div>
+        <hr id="linha">
+        <div id="mapCanvas"></div>
+        <div id="sidebar" style="font-family: Roboto, sans-serif"></div>
+        <script src="layers.js"></script>
+    </body>
+</html>
